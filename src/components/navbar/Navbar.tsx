@@ -14,27 +14,34 @@ import { styled } from '@mui/system';
 import signature from "../../assets/signature.png"
 
 const StyledAppBar = styled(AppBar)({
-  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  background: 'aliceblue',
   padding: '0 30px',
   '@media (max-width: 600px)': {
     padding: '0 10px',
   }
 });
 
-const StyledMenuButton = styled(IconButton)({
+const StyledMenuButton = styled(IconButton)(({ theme }) => ({
     display: 'none',
     marginRight: '20px',
     '@media (max-width: 600px)': {
       display: 'block',
       marginRight: '10px',
-    },
-});
+    }
+  }));
 
 const StyledMenu = styled(Box)({
     display: 'flex',
+    color: 'black',
     '@media (max-width: 600px)': {
       display: 'none',
     },
+    '& Button': {
+        borderRadius: '0',
+      },
+    '& Button:hover': {
+        borderBottom: '2px solid orange',
+      },
   });
 
 const StyledToolbar = styled(Toolbar)({
