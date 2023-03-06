@@ -1,66 +1,101 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+  Menu,
+  MenuItem,
+  Box
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { styled } from '@mui/material/styles';
-import signature from "../../assets/signature.png";
+import { styled } from '@mui/system';
+import signature from "../../assets/signature.png"
 
 const StyledAppBar = styled(AppBar)({
-  backgroundColor: '#333',
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  padding: '0 30px',
+  '@media (max-width: 600px)': {
+    padding: '0 10px',
+  }
 });
+
+const StyledMenuButton = styled(IconButton)({
+    display: 'none',
+    marginRight: '20px',
+    '@media (max-width: 600px)': {
+      display: 'block',
+      marginRight: '10px',
+    },
+});
+
+const StyledMenu = styled(Box)({
+    display: 'flex',
+    '@media (max-width: 600px)': {
+      display: 'none',
+    },
+  });
 
 const StyledToolbar = styled(Toolbar)({
-  display: 'flex',
-  justifyContent: 'space-between',
+    display: 'flex',
+    justifyContent: 'space-between',
 });
 
-const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  marginRight: theme.spacing(2),
-  [theme.breakpoints.up('md')]: {
-    display: 'none',
-  },
-}));
-
-const StyledDrawer = styled(Drawer)({
-  '& .MuiDrawer-paper': {
-    width: 250,
-  },
+const StyledImage = styled('img')({
+  width: '250px'
 });
 
-const NavBar = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+const NavBar: React.FC = () => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
-  const handleDrawerToggle = () => {
-    setDrawerOpen(!drawerOpen);
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const menuItems = (
-    <List>
-      <ListItem button>
-        <ListItemText primary="Home" />
-      </ListItem>
-      <ListItem button>
-        <ListItemText primary="About" />
-      </ListItem>
-      <ListItem button>
-        <ListItemText primary="Contact" />
-      </ListItem>
-    </List>
-  );
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <StyledAppBar position="static">
       <StyledToolbar>
-        <StyledIconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
+        <StyledMenuButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={handleMenu}
+        >
           <MenuIcon />
-        </StyledIconButton>
-        <img src={signature} />
-        <Button color="inherit">Contact</Button>
+        </StyledMenuButton>
+        <StyledImage src={signature} />
+        <StyledMenu>
+          <Button color="inherit">Home</Button>
+          <Button color="inherit">About</Button>
+          <Button color="inherit">Contact</Button>
+        </StyledMenu>
+        <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={open}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Home</MenuItem>
+          <MenuItem onClick={handleClose}>About</MenuItem>
+          <MenuItem onClick={handleClose}>Contact</MenuItem>
+        </Menu>
       </StyledToolbar>
-      <StyledDrawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
-        {menuItems}
-      </StyledDrawer>
     </StyledAppBar>
   );
 };
 
-export default NavBar
+export default NavBar;

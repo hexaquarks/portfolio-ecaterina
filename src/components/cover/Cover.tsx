@@ -1,52 +1,63 @@
-import React from 'react'
-import Placeholder from '../../assets/image-placeholder.jpg'
-import { makeStyles } from 'tss-react/mui';
-import { Background, Parallax } from 'react-parallax';
-import { Grid, Typography } from '@mui/material';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import profilePicture from "../../assets/image-placeholder.jpg"
 
-const useStyles = makeStyles()((theme) => {
-    return {
-      root: {
-        color: theme.palette.primary.main,
-        height: "100vh"
-      },
-      grid: {
-        paddingTop: "5%"
-      },
-      description: {
-        backgroundColor: "gray"
-      },
-      title: {
+const CoverPageContainer = styled(Container)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  paddingTop: theme.spacing(5),
+  paddingBottom: theme.spacing(5),
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+}));
 
-      },
-      subtitle: {
+const ProfilePicture = styled('img')(({ theme }) => ({
+  width: '100%',
+  height: 600,
+  maxWidth: 600,
+  marginBottom: theme.spacing(10),
 
-      },
-      image: {
-        backgroundColor: "gray"
-      },
-    };
-  });
+  [theme.breakpoints.down('sm')]: {
+    marginBottom: theme.spacing(2),
+  },
+}));
 
-const Cover = () => {
-    const { classes } = useStyles();
-    return (
-        <Parallax className={classes.root} bgImage={Placeholder} strength={800}>
-            <Grid container className={classes.grid}>
-                <Grid item sm={8} className={classes.description}>
-                    <Typography variant="h1" className={classes.title}>
-                        Ecaterina Bujac
-                    </Typography>
-                    <Typography variant="h3" className={classes.subtitle}>
-                        Travailleuse Sociale
-                    </Typography>
-                </Grid>
-                <Grid item sm={4} className={classes.image}>
-                    <img src={Placeholder}/>
-                </Grid>
-            </Grid>
-        </Parallax>
-    )
-}
+const TitleContainer = styled('div')(({ theme }) => ({
+  textAlign: 'left',
+  maxWidth: 600,
 
-export default Cover
+  [theme.breakpoints.down('sm')]: {
+    marginTop: theme.spacing(2),
+    textAlign: 'center',
+  },
+}));
+
+const CoverPage: React.FC = () => {
+  return (
+    <CoverPageContainer>
+      <Grid container spacing={5}>
+        <Grid item xs={12} md={6}>
+          <TitleContainer>
+            <Typography variant="h1" component="h1" gutterBottom>
+              Ecaterina Bujac
+            </Typography>
+            <Typography variant="h4" component="h2">
+              Travailleuse Sociale
+            </Typography>
+          </TitleContainer>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ProfilePicture src={profilePicture} alt="Profile Picture" />
+        </Grid>
+      </Grid>
+    </CoverPageContainer>
+  );
+};
+
+export default CoverPage;

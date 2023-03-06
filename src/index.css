@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.parallax {
+  position: relative;
+  height: 100vh;
+  background-color: aliceblue;
+}
+
 /* .image {
   position: relative;
   height: 100vh;
