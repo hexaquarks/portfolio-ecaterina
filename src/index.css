@@ -12,7 +12,48 @@ code {
     monospace;
 }
 
-.image {
+/* .image {
   position: relative;
   height: 100vh;
 }
+
+.description {
+  display: block;
+  background-color: black;
+  height: 100vh;
+}
+
+.parallax-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 100px;
+  grid-row-gap: 0px;
+  height: 75vh;
+
+  flex-grow: 1;
+}
+
+.parallax-grid-description {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10%;
+
+}
+
+.title {
+  font-size: clamp(20px, 5vw, 80px); 
+}
+
+.subtitle {
+  font-size: clamp(15px, 3vw, 45px); 
+}
+
+.parallax-grid-image {
+  background-color: red;
+  margin-right: 10%;
+}
+*/
+
