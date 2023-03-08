@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import profilePicture from "../../assets/image-placeholder.jpg"
+import profilePicture from "../../assets/profile-picture.jpg"
 
 const CoverPageContainer = styled(Container)(({ theme }) => ({
   display: 'flex',
@@ -31,25 +31,38 @@ const ProfilePicture = styled('img')(({ theme }) => ({
 const TitleContainer = styled('div')(({ theme }) => ({
   textAlign: 'left',
   maxWidth: 600,
-
+  height: '80%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
   [theme.breakpoints.down('sm')]: {
     marginTop: theme.spacing(2),
     textAlign: 'center',
   },
 }));
 
+const CustomTypography = styled(Typography)(({ theme }) => ({
+    whiteSpace: 'pre-line',
+    '& span': {
+      color: 'red',
+      fontStyle: 'italic',
+    },
+  }));
+
 const CoverPage: React.FC = () => {
   return (
     <CoverPageContainer>
-      <Grid container spacing={5}>
-        <Grid item xs={12} md={6}>
+      <Grid container spacing={10}>
+        <Grid item xs={12} md={6} direction="column" justifyContent="space-between">
           <TitleContainer>
-            <Typography variant="h1" component="h1" gutterBottom>
-              Ecaterina Bujac
-            </Typography>
-            <Typography variant="h4" component="h2">
-              Travailleuse Sociale
-            </Typography>
+          <CustomTypography variant="h2" gutterBottom>
+            Je suis Ecaterina Bujac,
+            {'\n'}
+           <span>votre</span> travailleuse sociale
+           </CustomTypography>
+           <Typography variant="h4">
+               Ensemble, nous pouvons surmonter les défis de la vie
+           </Typography>
           </TitleContainer>
         </Grid>
         <Grid item xs={12} md={6}>
