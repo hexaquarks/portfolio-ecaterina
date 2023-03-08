@@ -1,13 +1,14 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import profilePicture from "../../assets/profile-picture.jpg"
+import profilePicture from "../../assets/profile-picture.jpg";
 
 const CoverPageContainer = styled(Container)(({ theme }) => ({
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'space-around',
   alignItems: 'center',
   paddingTop: theme.spacing(5),
   paddingBottom: theme.spacing(5),
@@ -42,34 +43,40 @@ const TitleContainer = styled('div')(({ theme }) => ({
 }));
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
-    whiteSpace: 'pre-line',
-    '& span': {
-      color: 'red',
-      fontStyle: 'italic',
-    },
-  }));
+  whiteSpace: 'pre-line',
+  '& span': {
+    color: 'red',
+    fontStyle: 'italic',
+  },
+}));
 
 const CoverPage: React.FC = () => {
   return (
-    <CoverPageContainer>
-      <Grid container spacing={10}>
-        <Grid item xs={12} md={6} direction="column" justifyContent="space-between">
-          <TitleContainer>
-          <CustomTypography variant="h2" gutterBottom>
-            Je suis Ecaterina Bujac,
-            {'\n'}
-           <span>votre</span> travailleuse sociale
-           </CustomTypography>
-           <Typography variant="h4">
-               Ensemble, nous pouvons surmonter les défis de la vie
-           </Typography>
-          </TitleContainer>
+    <>
+      <Helmet>
+        <title>My Page Title</title>
+        <meta name="description" content="This is a description of my page" />
+      </Helmet>
+      <CoverPageContainer>
+        <Grid container justifyContent="space-around" spacing={16}>
+          <Grid item xs={12} md={6} direction="column" justifyContent="space-between">
+            <TitleContainer>
+              <CustomTypography variant="h2" gutterBottom>
+                Je suis Ecaterina Bujac,
+                {'\n'}
+                <span>votre</span> travailleuse sociale
+              </CustomTypography>
+              <Typography variant="h4">
+                Ensemble, nous pouvons surmonter les défis de la vie
+              </Typography>
+            </TitleContainer>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <ProfilePicture src={profilePicture} alt="Profile Picture" />
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <ProfilePicture src={profilePicture} alt="Profile Picture" />
-        </Grid>
-      </Grid>
-    </CoverPageContainer>
+      </CoverPageContainer>
+    </>
   );
 };
 

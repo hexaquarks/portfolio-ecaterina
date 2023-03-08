@@ -4,6 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Helmet } from 'react-helmet';
+
+// Inside the component:
+<Helmet>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</Helmet>
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
