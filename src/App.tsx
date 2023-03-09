@@ -4,7 +4,7 @@ import { Background, Parallax } from 'react-parallax';
 
 import Navbar from './components/navbar/Navbar'
 import Cover from './components/cover/Cover'
-import Description from './components/description/Description'
+import Services from './components/services/MyServices'
 import FormComponent from './components/form/FormComponent'
 
 import placeholder from "./assets/image-placeholder.jpg"
@@ -16,7 +16,7 @@ const App = () => {
       <Parallax className="parallax" strength={700}>
         <Cover />
       </Parallax>
-      <Description />
+      <Services />
       <FormComponent />
     </div>
   );
