@@ -30,19 +30,24 @@ const StyledMenuButton = styled(IconButton)(({ theme }) => ({
     }
   }));
 
-const StyledMenu = styled(Box)({
+  const StyledMenu = styled(Box)({
     display: 'flex',
     color: 'black',
     '@media (max-width: 600px)': {
       display: 'none',
     },
     '& Button': {
-        borderRadius: '0',
-      },
+      borderRadius: '0',
+      margin: '0 10px',
+      padding: '10px 15px',
+      fontSize: '18px',
+    },
     '& Button:hover': {
-        borderBottom: '2px solid orange',
-      },
+      borderBottom: '2px solid orange',
+    },
+    margin: 0,
   });
+  
 
 const StyledToolbar = styled(Toolbar)({
     display: 'flex',
@@ -50,7 +55,8 @@ const StyledToolbar = styled(Toolbar)({
 });
 
 const StyledImage = styled('img')({
-  width: '250px'
+  width: '225px',
+  height: '38px'
 });
 
 const NavBar: React.FC = () => {

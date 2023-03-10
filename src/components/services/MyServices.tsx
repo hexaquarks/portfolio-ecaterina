@@ -1,81 +1,156 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
-import { Box, Grid, Typography } from "@mui/material";
+import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { styled } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import profilePicture from "../../assets/profile-picture.jpg";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-import placeholder from "../../assets/image-placeholder.jpg";
-import { ThreeMpOutlined } from "@mui/icons-material";
-
-const MyServicesWrapper = styled(Box)(({ theme }) => ({
-  backgroundColor: "#f7f7f7",
-  paddingTop: theme.spacing(10),
-  paddingBottom: theme.spacing(10),
-  [theme.breakpoints.up("md")]: {
-    paddingTop: theme.spacing(20),
-    paddingBottom: theme.spacing(20),
+const CoverPageContainer = styled(Container)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  paddingTop: theme.spacing(5),
+  paddingBottom: theme.spacing(5),
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
+  "&.MuiContainer-root": {
+    padding: 0
+  }
 }));
 
-const MyServicesTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: "bold",
-  textAlign: "center",
-  marginBottom: theme.spacing(5),
+const ProfilePicture = styled('img')(({ theme }) => ({
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
 }));
 
-const ServiceContainer = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(5),
-  [theme.breakpoints.up("md")]: {
-    marginTop: theme.spacing(10),
-  },
+const TitleContainer = styled('div')(({ theme }) => ({
+  textAlign: 'left',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  marginTop: theme.spacing(2),
   marginLeft: theme.spacing(5),
-  marginRight: theme.spacing(5)
+  marginRight: theme.spacing(6),
+  [theme.breakpoints.down('sm')]: {
+    marginTop: 0,
+    textAlign: 'center',
+  },
+  '& button': {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '2px solid #000',
+    backgroundColor: 'transparent',
+    color: '#000',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    padding: '10px 20px',
+    marginTop: 'auto',
+    cursor: 'pointer',
+    transition: 'border-color 0.3s',
+    borderRadius: 0,
+  },
+  '& button:hover': {
+    borderColor: 'orange',
+  },
+  '& button .MuiSvgIcon-root': {
+    marginLeft: '10px',
+  },
 }));
 
-const ServiceImage = styled("img")(({ theme }) => ({
-  width: "100%",
-  height: "auto",
-  borderRadius: theme.spacing(1),
+const CustomTypography = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Montserrat, sans-serif',
+  fontSize: `clamp(40px, 6vw, 90px)`,
+  whiteSpace: 'pre-line',
+  lineHeight: '35%',
+  '& span': {
+    fontSize: '25px',
+  },
+  '& div': {
+    fontSize: '30px',
+  },
+  "&.MuiTypography-root": {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  }
 }));
 
-const ServiceTitle = styled(Typography)({
-  fontWeight: "bold",
-  marginTop: 12,
-  marginBottom: 12,
-});
-
-const ServiceDescription = styled(Typography)({
-  marginBottom: 24,
-});
-
-const services = [
-  {
-    image: placeholder,
-    title: "Service 1",
-    description: "Description 1",
+const CustomTypographyTitle = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Montserrat, sans-serif',
+  fontSize: `clamp(40px, 6vw, 90px)`,
+  whiteSpace: 'pre-line',
+  lineHeight: '35%',
+  '& span': {
+    fontSize: '25px',
   },
-  {
-    image: placeholder,
-    title: "Service 2",
-    description: "Description 2",
+  '& div': {
+    fontSize: '30px',
   },
-];
+  "&.MuiTypography-root": {
+    marginTop: theme.spacing(7),
+    marginLeft: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  }
+}));
 
-const MyServices = () => {
+const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Montserrat, sans-serif',
+  fontWeight: '500',
+  fontSize: `clamp(20px, 4vw, 60px)`,
+  lineHeight: '200%'
+}));
+
+const CoverPage: React.FC = () => {
   return (
-    <MyServicesWrapper>
-      <MyServicesTitle variant="h4">Mes services professionnels</MyServicesTitle>
-      <Grid container spacing={4} alignItems="stretch">
-        {services.map((service, index) => (
-          <Grid key={index} item xs={12} md={6}>
-            <ServiceContainer>
-              <ServiceTitle variant="h6">{service.title}</ServiceTitle>
-              <ServiceImage src={service.image} alt={service.title} />
-              <ServiceDescription>{service.description}</ServiceDescription>
-            </ServiceContainer>
+    <>
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
+        <title>My Page Title</title>
+        <meta name="description" content="This is a description of my page" />
+      </Helmet>
+      <CoverPageContainer maxWidth={false}>
+        <Grid container justifyContent="center" alignItems="stretch">
+          <Grid item xs={12} md={6}>
+            <TitleContainer>
+              <CustomTypographyTitle variant="h5" gutterBottom>
+                Mes Services
+              </CustomTypographyTitle>
+              <ul style={{ listStyleType: 'square', marginBlockStart: '0.5em', marginBlockEnd: '0.5em', paddingLeft: '1em', lineHeight: '0.1'}}>
+                <li>
+                  <CustomTypography variant="body1">
+                    <span>Évaluation psychosociale dans le cadre de l’ouverture d’une tutelle au majeur</span>
+                  </CustomTypography>
+                </li>
+                <li>
+                  <CustomTypography variant="body1">
+                    <span>Évaluation psychosociale dans le cadre de l’homologation d’un Mandat de Protection</span>
+                  </CustomTypography>
+                </li>
+              </ul>
+              <CustomTypography variant="body1" gutterBottom>
+                <div>Pour les personnes ayant une inaptitude ou en besoin d’être représentées.</div>
+              </CustomTypography>
+              <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
+                <button>
+                  Me contacter
+                  <ArrowForwardIcon />
+                </button>
+              </div>
+            </TitleContainer>
           </Grid>
-        ))}
-      </Grid>
-    </MyServicesWrapper>
+          <Grid item xs={12} md={6}>
+            <ProfilePicture src={profilePicture} alt="Profile Picture" />
+          </Grid>
+        </Grid>
+      </CoverPageContainer>
+    </>
   );
 };
 
-export default MyServices;
+export default CoverPage;

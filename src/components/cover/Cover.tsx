@@ -46,7 +46,7 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
   fontSize: `clamp(40px, 6vw, 90px)`,
   whiteSpace: 'pre-line',
   '& span': {
-    color: 'red',
+    color: '#FFCEA3',
     fontStyle: 'italic',
   },
   "&.MuiTypography-root": {
