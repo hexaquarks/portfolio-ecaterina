@@ -16,38 +16,42 @@ const CoverPageContainer = styled(Container)(({ theme }) => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
+  "&.MuiContainer-root": {
+    padding: 0
+  }
 }));
 
 const ProfilePicture = styled('img')(({ theme }) => ({
   width: '100%',
-  height: 600,
-  maxWidth: 600,
-  marginBottom: theme.spacing(10),
-
-  [theme.breakpoints.down('sm')]: {
-    marginBottom: theme.spacing(2),
-  },
+  height: '100%',
+  objectFit: 'cover',
 }));
 
 const TitleContainer = styled('div')(({ theme }) => ({
   textAlign: 'left',
-  maxWidth: 600,
-  height: '80%',
+  height: '100%',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  marginTop: theme.spacing(2),
+  marginLeft: theme.spacing(3),
   [theme.breakpoints.down('sm')]: {
-    marginTop: theme.spacing(2),
+    marginTop: 0,
     textAlign: 'center',
   },
 }));
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
+  fontSize: `clamp(50px, 6vw, 90px)`,
   whiteSpace: 'pre-line',
   '& span': {
     color: 'red',
     fontStyle: 'italic',
   },
+  "&.MuiTypography-root": {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  }
 }));
 
 const CoverPage: React.FC = () => {
@@ -57,22 +61,22 @@ const CoverPage: React.FC = () => {
         <title>My Page Title</title>
         <meta name="description" content="This is a description of my page" />
       </Helmet>
-      <CoverPageContainer>
-        <Grid container justifyContent="space-around" spacing={16}>
-          <Grid item xs={12} md={6} direction="column" justifyContent="space-between">
-            <TitleContainer>
-              <CustomTypography variant="h2" gutterBottom>
-                Je suis Ecaterina Bujac,
-                {'\n'}
-                <span>votre</span> travailleuse sociale
-              </CustomTypography>
-              <Typography variant="h4">
-                Ensemble, nous pouvons surmonter les défis de la vie
-              </Typography>
-            </TitleContainer>
-          </Grid>
+      <CoverPageContainer maxWidth={false}>
+        <Grid container justifyContent="center" alignItems="stretch">
           <Grid item xs={12} md={6}>
             <ProfilePicture src={profilePicture} alt="Profile Picture" />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TitleContainer>
+              <CustomTypography variant="h2" gutterBottom>
+                Je suis Ecaterina,
+                {'\n'}
+                <span>votre</span> travailleuse sociale.
+              </CustomTypography>
+                <Typography variant="h4" className="MuiTypography-root">
+                  Ensemble, nous pouvons surmonter les défis de la vie
+                </Typography>
+            </TitleContainer>
           </Grid>
         </Grid>
       </CoverPageContainer>

@@ -13,9 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <Navbar />
-      <Parallax className="parallax" strength={700}>
-        <Cover />
-      </Parallax>
+      <Cover />
       <Services />
       <FormComponent />
     </div>
