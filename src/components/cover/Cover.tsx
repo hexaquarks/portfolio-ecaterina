@@ -42,7 +42,8 @@ const TitleContainer = styled('div')(({ theme }) => ({
 }));
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
-  fontSize: `clamp(50px, 6vw, 90px)`,
+  fontFamily: 'Montserrat, sans-serif',
+  fontSize: `clamp(40px, 6vw, 90px)`,
   whiteSpace: 'pre-line',
   '& span': {
     color: 'red',
@@ -54,10 +55,17 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
   }
 }));
 
+const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Montserrat, sans-serif',
+  fontWeight: '500',
+  fontSize: `clamp(20px, 4vw, 60px)`,
+}));
+
 const CoverPage: React.FC = () => {
   return (
     <>
       <Helmet>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
         <title>My Page Title</title>
         <meta name="description" content="This is a description of my page" />
       </Helmet>
@@ -73,9 +81,9 @@ const CoverPage: React.FC = () => {
                 {'\n'}
                 <span>votre</span> travailleuse sociale.
               </CustomTypography>
-                <Typography variant="h4" className="MuiTypography-root">
+                <CustomTypographyBottom variant="h4">
                   Ensemble, nous pouvons surmonter les défis de la vie
-                </Typography>
+                </CustomTypographyBottom>
             </TitleContainer>
           </Grid>
         </Grid>
