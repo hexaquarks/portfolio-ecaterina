@@ -12,12 +12,14 @@ const CoverPageContainer = styled(Container)(({ theme }) => ({
   alignItems: 'center',
   paddingTop: theme.spacing(5),
   paddingBottom: theme.spacing(5),
+  backgroundColor: 'aliceblue',
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
   "&.MuiContainer-root": {
-    padding: 0
+    padding: 0,
+    paddingTop: theme.spacing(6),
   }
 }));
 

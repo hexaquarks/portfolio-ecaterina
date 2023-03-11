@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import placeholder from "../../assets/image-placeholder.jpg";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
+  paddingTop: theme.spacing(5),
   marginLeft: '0',
   marginRight: '0',
   width: '100%',
@@ -58,12 +59,13 @@ const FormButton = styled(Button)(({ theme }) => ({
 }));
 
 const PictureContainer = styled(Box)(({ theme }) => ({
-  width: "30%",
-  height: 0,
-  paddingTop: "30%",
-  position: "relative",
-  borderRadius: "10px",
-  overflow: "hidden",
+  width: '40%',
+  height: '0',
+  paddingTop: '33%',
+  marginTop: '2%',
+  position: 'relative',
+  borderRadius: '10px',
+  overflow: 'hidden',
 }));
 
 const Picture = styled("img")(({ theme }) => ({
@@ -108,16 +110,16 @@ const FormComponent: React.FC = () => {
           <StyledContentPaper elevation={0}>
             <StyledFormContainer>
               <FormTitle variant="h2" align="left">
-                Contact Us
+                Me Contacter
               </FormTitle>
               <StyledForm onSubmit={handleSubmit}>
-                <FormField id="name" label="Name" variant="standard" required />
-                <FormField id="last-name" label="Last Name" variant="standard" required />
+                <FormField id="name" label="Prénom" variant="standard" required />
+                <FormField id="last-name" label="Nom" variant="standard" required />
                 <FormField id="email" label="Email" type="email" variant="standard" required />
-                <FormField id="phone-number" label="Phone number" type="tel" variant="standard" required />
-                <FormField id="reason" label="Reason for consulting" variant="standard" required />
+                <FormField id="phone-number" label="Numéro de téléphone" type="tel" variant="standard" required />
+                <FormField id="reason" label="Raison de consultation" variant="standard" required />
                 <FormButton variant="contained" type="submit">
-                  Submit
+                  Soumettre
                 </FormButton>
               </StyledForm>
             </StyledFormContainer>
