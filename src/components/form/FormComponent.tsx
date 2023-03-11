@@ -34,7 +34,7 @@ const StyledFormContainer = styled(Container)(({ theme }) => ({
 
 const FormTitle = styled(Typography)(({ theme }) => ({
   fontWeight: "bold",
-  fontSize: "2rem",
+  fontSize: "2.5rem",
   fontFamily: 'Montserrat, sans-serif',
   marginBottom: theme.spacing(2),
 }));
@@ -81,7 +81,7 @@ const StyledFormButton = styled(FormButton)(({ theme }) => ({
   fontSize: '16px',
   fontWeight: 'bold',
   padding: '10px 20px',
-  marginTop: '50px',
+  marginTop: '40px',
   cursor: 'pointer',
   transition: 'border-color 0.3s',
   borderRadius: 0,
