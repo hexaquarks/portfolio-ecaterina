@@ -44,7 +44,7 @@ const TitleContainer = styled('div')(({ theme }) => ({
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat, sans-serif',
-  fontSize: `clamp(40px, 6vw, 90px)`,
+  fontSize: `clamp(34px, 6vw, 90px)`,
   fontWeight: '300',
   whiteSpace: 'pre-line',
   '& span': {
@@ -54,7 +54,10 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
   "&.MuiTypography-root": {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
-  }
+  },
+  [theme.breakpoints.down('sm')]: {
+    paddingBottom: theme.spacing(6)
+  },
 }));
 
 const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
@@ -68,8 +71,8 @@ const CoverPage: React.FC = () => {
   return (
     <>
       <Helmet>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
         <title>My Page Title</title>
         <meta name="description" content="This is a description of my page" />
       </Helmet>
@@ -85,9 +88,9 @@ const CoverPage: React.FC = () => {
                 {'\n'}
                 <span>votre</span> travailleuse sociale.
               </CustomTypography>
-                <CustomTypographyBottom variant="h4">
-                  Ensemble, nous pouvons surmonter les défis de la vie
-                </CustomTypographyBottom>
+              <CustomTypographyBottom variant="h4">
+                Ensemble, nous pouvons surmonter les défis de la vie
+              </CustomTypographyBottom>
             </TitleContainer>
           </Grid>
         </Grid>

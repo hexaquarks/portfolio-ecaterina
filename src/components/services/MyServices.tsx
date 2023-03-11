@@ -40,6 +40,8 @@ const TitleContainer = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     marginTop: 0,
     textAlign: 'center',
+    marginLeft: theme.spacing(0),
+    marginRight: theme.spacing(0),
   },
   '& button': {
     display: 'flex',
@@ -69,7 +71,7 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
   fontSize: `clamp(40px, 6vw, 90px)`,
   whiteSpace: 'pre-line',
   '& span': {
-    fontSize: '25px',
+    fontSize: `clamp(18px, 2.5vw, 25px)`,
     fontFamily: 'Inter, sans-serif',
     fontWeight: '300',
   },
@@ -102,14 +104,16 @@ const CustomTypographyTitle = styled(Typography)(({ theme }) => ({
 
 const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
-    textAlign: 'left'
+    textAlign: 'left',
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
   },
   fontSize: `clamp(25px, 3vw, 30px)`,
   fontWeight: '300',
   fontFamily: 'Inter, sans-serif',
 }));
 
-const CustomList = styled('ul')({
+const CustomList = styled('ul')(({ theme }) => ({
   listStyleType: 'square',
   marginBlockStart: '0.5em',
   marginBlockEnd: '0.5em',
@@ -118,7 +122,10 @@ const CustomList = styled('ul')({
     fontSize: '1.2em',
     lineHeight: '1em',
   },
-});
+  [theme.breakpoints.down('sm')]: {
+    marginLeft: theme.spacing(3)
+  },
+}));
 
 const CoverPage: React.FC = () => {
   return (

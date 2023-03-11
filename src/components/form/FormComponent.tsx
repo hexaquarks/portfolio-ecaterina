@@ -28,13 +28,12 @@ const StyledFormContainer = styled(Container)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   paddingTop: theme.spacing(5),
-  paddingBottom: theme.spacing(5),
   backgroundColor: "aliceblue",
 }));
 
 const FormTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: "bold",
-  fontSize: "2.5rem",
+  fontSize: `clamp(40px, 4vw, 60px)`,
+  fontWeight: '400',
   fontFamily: 'Montserrat, sans-serif',
   marginBottom: theme.spacing(2),
 }));
@@ -120,7 +119,6 @@ const StyledContentBox = styled(Box)(({ theme }) => ({
   height: "100%",
   margin: 0,
   padding: 0,
-  overflow: "auto",
   [theme.breakpoints.down('md')]: {
     width: '100%',
     overflow: 'visible'
