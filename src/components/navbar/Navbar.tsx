@@ -97,9 +97,9 @@ const NavBar: React.FC = () => {
         </StyledMenuButton>
         <StyledImage src={signature} />
         <StyledMenu>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Contact</Button>
+          <Button color="inherit">Accueil</Button>
+          <Button color="inherit">Services</Button>
+          <Button color="inherit">Contacter</Button>
         </StyledMenu>
         <Menu
           anchorEl={anchorEl}
