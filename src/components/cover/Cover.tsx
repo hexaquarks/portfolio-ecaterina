@@ -39,7 +39,6 @@ const TitleContainer = styled('div')(({ theme }) => ({
   marginLeft: theme.spacing(3),
   [theme.breakpoints.down('sm')]: {
     marginTop: 0,
-    textAlign: 'center',
   },
 }));
 

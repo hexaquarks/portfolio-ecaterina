@@ -62,26 +62,24 @@ const TitleContainer = styled('div')(({ theme }) => ({
   },
   '& button .MuiSvgIcon-root': {
     marginLeft: '10px',
-  },
+  }
 }));
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   fontSize: `clamp(40px, 6vw, 90px)`,
   whiteSpace: 'pre-line',
-  lineHeight: '35%',
   '& span': {
     fontSize: '25px',
-  },
-  '& div, & span': {
     fontFamily: 'Inter, sans-serif',
-  },
-  '& div': {
-    fontSize: '30px',
-    fontWeight: '300'
+    fontWeight: '300',
   },
   "&.MuiTypography-root": {
+    lineHeight: '50%',
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'left'
+    }
   }
 }));
 
@@ -89,7 +87,6 @@ const CustomTypographyTitle = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat, sans-serif',
   fontSize: `clamp(40px, 6vw, 90px)`,
   whiteSpace: 'pre-line',
-  lineHeight: '35%',
   '& span': {
     fontSize: '25px',
   },
@@ -104,18 +101,31 @@ const CustomTypographyTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Montserrat, sans-serif',
-  fontWeight: '500',
-  fontSize: `clamp(20px, 4vw, 60px)`,
-  lineHeight: '200%'
+  [theme.breakpoints.down('sm')]: {
+    textAlign: 'left'
+  },
+  fontSize: `clamp(25px, 3vw, 30px)`,
+  fontWeight: '300',
+  fontFamily: 'Inter, sans-serif',
 }));
+
+const CustomList = styled('ul')({
+  listStyleType: 'square',
+  marginBlockStart: '0.5em',
+  marginBlockEnd: '0.5em',
+  paddingLeft: '1em',
+  '& li::marker': {
+    fontSize: '1.2em',
+    lineHeight: '1em',
+  },
+});
 
 const CoverPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
         <title>My Page Title</title>
         <meta name="description" content="This is a description of my page" />
       </Helmet>
@@ -126,7 +136,7 @@ const CoverPage: React.FC = () => {
               <CustomTypographyTitle variant="h5" gutterBottom>
                 Mes Services
               </CustomTypographyTitle>
-              <ul style={{ listStyleType: 'square', marginBlockStart: '0.5em', marginBlockEnd: '0.5em', paddingLeft: '1em', lineHeight: '0.1'}}>
+              <CustomList>
                 <li>
                   <CustomTypography variant="body1">
                     <span>Évaluation psychosociale dans le cadre de l’ouverture d’une tutelle au majeur</span>
@@ -137,11 +147,11 @@ const CoverPage: React.FC = () => {
                     <span>Évaluation psychosociale dans le cadre de l’homologation d’un Mandat de Protection</span>
                   </CustomTypography>
                 </li>
-              </ul>
-              <CustomTypography variant="body1" gutterBottom>
+              </CustomList>
+              <CustomTypographyBottom variant="body1" gutterBottom>
                 <div>Pour les personnes ayant une inaptitude ou en besoin d’être représentées.</div>
-              </CustomTypography>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px'}}>
+              </CustomTypographyBottom>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px' }}>
                 <button>
                   Me contacter
                   <ArrowForwardIcon />
