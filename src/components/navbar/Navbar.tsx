@@ -24,35 +24,36 @@ const StyledAppBar = styled(AppBar)({
 });
 
 const StyledMenuButton = styled(IconButton)(({ theme }) => ({
-    display: 'none',
-    marginRight: '20px',
-    '@media (max-width: 600px)': {
-      display: 'block',
-      marginRight: '10px',
-    }
-  }));
+  display: 'none',
+  marginRight: '20px',
+  '@media (max-width: 600px)': {
+    display: 'block',
+    marginRight: '10px',
+  }
+}));
 
-  const StyledMenu = styled(Box)({
-    display: 'flex',
-    color: 'black',
-    '@media (max-width: 600px)': {
-      display: 'none',
-    },
-    '& Button': {
-      borderRadius: '0',
-      margin: '0 10px',
-      padding: '10px 15px',
-      fontSize: '18px',
-    },
-    '& Button:hover': {
-      borderBottom: '2px solid orange',
-    },
-    margin: 0,
-  });
-  
+const StyledMenu = styled(Box)({
+  display: 'flex',
+  color: '#100C08',
+  '@media (max-width: 600px)': {
+    display: 'none',
+  },
+  '& Button': {
+    borderRadius: '0',
+    margin: '0 10px',
+    padding: '10px 15px',
+    fontSize: '18px',
+    color: 'onyx'
+  },
+  '& Button:hover': {
+    borderBottom: '2px solid orange',
+  },
+  margin: 0,
+});
+
 const StyledToolbar = styled(Toolbar)({
-    display: 'flex',
-    justifyContent: 'space-between',
+  display: 'flex',
+  justifyContent: 'space-between',
 });
 
 const StyledImage = styled('img')({
@@ -77,7 +78,6 @@ const NavBar: React.FC = () => {
       <StyledToolbar>
         <StyledMenuButton
           edge="start"
-          color="inherit"
           aria-label="menu"
           onClick={handleMenu}
         >

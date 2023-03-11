@@ -96,7 +96,7 @@ const StyledFormButton = styled(FormButton)(({ theme }) => ({
 const PictureContainer = styled(Box)(({ theme }) => ({
   width: '550px',
   height: '525px',
-  marginTop: theme.spacing(4),
+  marginTop: theme.spacing(7),
   position: 'relative',
   borderRadius: '10px',
   overflow: 'hidden',

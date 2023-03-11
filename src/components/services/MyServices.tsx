@@ -54,6 +54,7 @@ const TitleContainer = styled('div')(({ theme }) => ({
     fontWeight: 'bold',
     padding: '10px 20px',
     marginTop: 'auto',
+    marginBottom: theme.spacing(2),
     cursor: 'pointer',
     transition: 'border-color 0.3s',
     borderRadius: 0,
@@ -123,7 +124,8 @@ const CustomList = styled('ul')(({ theme }) => ({
     lineHeight: '1em',
   },
   [theme.breakpoints.down('sm')]: {
-    marginLeft: theme.spacing(3)
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(1)
   },
 }));
 
