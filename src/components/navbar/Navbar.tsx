@@ -14,6 +14,8 @@ import { styled } from '@mui/system';
 import signature from "../../assets/signature.png"
 
 const StyledAppBar = styled(AppBar)({
+  position: 'fixed',
+  zIndex: '999 !important',
   background: 'aliceblue',
   padding: '0 30px',
   '@media (max-width: 600px)': {
@@ -48,7 +50,6 @@ const StyledMenuButton = styled(IconButton)(({ theme }) => ({
     margin: 0,
   });
   
-
 const StyledToolbar = styled(Toolbar)({
     display: 'flex',
     justifyContent: 'space-between',
