@@ -59,13 +59,15 @@ const FormButton = styled(Button)(({ theme }) => ({
 }));
 
 const PictureContainer = styled(Box)(({ theme }) => ({
-  width: '40%',
-  height: '0',
-  paddingTop: '33%',
-  marginTop: '2%',
+  width: '500px',
+  height: '475px',
+  marginTop: theme.spacing(4),
   position: 'relative',
   borderRadius: '10px',
   overflow: 'hidden',
+  [theme.breakpoints.down('md')]: {
+    display: 'none'
+  },
 }));
 
 const Picture = styled("img")(({ theme }) => ({
@@ -79,13 +81,31 @@ const Picture = styled("img")(({ theme }) => ({
   objectFit: "cover",
 }));
 
-const StyledContentBox = styled(Box)({
+const StyledContentBox = styled(Box)(({ theme }) => ({
   width: "70%",
   height: "100%",
   margin: 0,
   padding: 0,
   overflow: "auto",
-});
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+    overflow: 'visible'
+  },
+}));
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  display: "flex", 
+  flexDirection: "row", 
+  alignItems: "stretch", 
+  width: "100%", 
+  height: "100vh", 
+  margin: 0, 
+  padding: 0,
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+}));
 
 const StyledContentPaper = styled(Paper)({
   width: "100%",
@@ -102,8 +122,8 @@ const FormComponent: React.FC = () => {
 
   return (
     <StyledContainer>
-      <Box sx={{ display: "flex", flexDirection: "row", alignItems: "stretch", width: "100%", height: "100vh", margin: 0, padding: 0 }}>
-        <PictureContainer sx={{ width: "30%" }}>
+      <StyledBox>
+        <PictureContainer>
           <Picture src={placeholder} alt="Contact" />
         </PictureContainer>
         <StyledContentBox sx={{ width: "70%" }}>
@@ -125,7 +145,7 @@ const FormComponent: React.FC = () => {
             </StyledFormContainer>
           </StyledContentPaper>
         </StyledContentBox>
-      </Box>
+      </StyledBox>
     </StyledContainer>
   );
 };
