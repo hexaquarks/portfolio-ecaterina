@@ -39,14 +39,26 @@ const StyledMenu = styled(Box)({
     display: 'none',
   },
   '& Button': {
+    display: 'inline-block',
     borderRadius: '0',
-    margin: '0 10px',
-    padding: '10px 15px',
+    padding: '0 30px',
     fontSize: '18px',
     color: 'onyx'
   },
+  '& Button:after': {
+    marginTop: '5px',
+    marginBottom: '0',
+    display: 'block',
+    content: `''`,
+    borderBottom: 'solid 3px orange',
+    transform: 'scaleX(0)', 
+    transition: 'transform 100ms ease-in-out',  
+  },
+  '& Button:hover:after': {
+    transform: 'scaleX(1)',
+  },
   '& Button:hover': {
-    borderBottom: '2px solid orange',
+    backgroundColor: 'unset',
   },
   margin: 0,
 });
