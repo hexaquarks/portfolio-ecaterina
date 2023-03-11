@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
+import { Helmet } from 'react-helmet';
 import { Box, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
@@ -34,6 +35,7 @@ const StyledFormContainer = styled(Container)(({ theme }) => ({
 const FormTitle = styled(Typography)(({ theme }) => ({
   fontWeight: "bold",
   fontSize: "2rem",
+  fontFamily: 'Montserrat, sans-serif',
   marginBottom: theme.spacing(2),
 }));
 
@@ -46,11 +48,22 @@ const StyledForm = styled("form")(({ theme }) => ({
   backgroundColor: "aliceblue",
 }));
 
+const CustomFormLabel = styled(Typography)({
+  fontFamily: 'Inter, sans-serif',
+});
+
 const FormField = styled(TextField)(({ theme }) => ({
   width: "100%",
   marginBottom: theme.spacing(2),
   "& .Mui-focused": {
     borderBottomColor: theme.palette.primary.main,
+  },
+  "& .MuiInputLabel-root": {
+    fontFamily: 'Inter, sans-serif',
+    fontWeight: '500'
+  },
+  '& .MuiInputBase-root': {
+    fontFamily: 'Inter, sans-serif'
   },
 }));
 
@@ -135,6 +148,13 @@ const FormComponent: React.FC = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
+        <title>My Page Title</title>
+        <meta name="description" content="This is a description of my page" />
+      </Helmet>
     <StyledContainer>
       <StyledBox>
         <PictureContainer>
@@ -160,6 +180,7 @@ const FormComponent: React.FC = () => {
         </StyledContentBox>
       </StyledBox>
     </StyledContainer>
+    </>
   );
 };
 

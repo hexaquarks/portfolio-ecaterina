@@ -46,6 +46,7 @@ const TitleContainer = styled('div')(({ theme }) => ({
 const CustomTypography = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat, sans-serif',
   fontSize: `clamp(40px, 6vw, 90px)`,
+  fontWeight: '300',
   whiteSpace: 'pre-line',
   '& span': {
     color: '#FFCEA3',
@@ -58,8 +59,8 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Montserrat, sans-serif',
-  fontWeight: '500',
+  fontFamily: 'Inter, sans-serif',
+  fontWeight: '200',
   fontSize: `clamp(20px, 4vw, 60px)`,
   marginBottom: theme.spacing(3),
 }));
@@ -69,6 +70,7 @@ const CoverPage: React.FC = () => {
     <>
       <Helmet>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
         <title>My Page Title</title>
         <meta name="description" content="This is a description of my page" />
       </Helmet>
