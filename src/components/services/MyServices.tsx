@@ -136,7 +136,7 @@ const CoverPage: React.FC = () => {
               <CustomTypography variant="body1" gutterBottom>
                 <div>Pour les personnes ayant une inaptitude ou en besoin d’être représentées.</div>
               </CustomTypography>
-              <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px'}}>
                 <button>
                   Me contacter
                   <ArrowForwardIcon />

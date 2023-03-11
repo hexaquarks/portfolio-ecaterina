@@ -59,6 +59,7 @@ const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat, sans-serif',
   fontWeight: '500',
   fontSize: `clamp(20px, 4vw, 60px)`,
+  marginBottom: theme.spacing(3),
 }));
 
 const CoverPage: React.FC = () => {
