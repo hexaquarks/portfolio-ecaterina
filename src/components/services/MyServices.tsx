@@ -55,6 +55,7 @@ const TitleContainer = styled('div')(({ theme }) => ({
     cursor: 'pointer',
     transition: 'border-color 0.3s',
     borderRadius: 0,
+    boxShadow: '0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12)',
   },
   '& button:hover': {
     borderColor: 'orange',
