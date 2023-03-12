@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import { Box, Paper } from "@mui/material";
 import { Element } from "react-scroll";
 import Modal from "@mui/material/Modal";
+import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -13,6 +14,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import placeholder from "../../assets/image-placeholder.jpg";
 import flowers from "../../assets/flowers.jpg";
+
+import SucessModal from "./SuccessModal"
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   paddingTop: theme.spacing(5),
@@ -191,24 +194,7 @@ const FormComponent: React.FC = () => {
           </StyledContentBox>
         </StyledBox>
       </StyledContainer>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-title"
-        aria-describedby="modal-description"
-        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-          <Paper sx={{ width: 400, padding: '40px', textAlign: 'center' }}>
-            <Typography variant="h5" component="h2" id="modal-title" gutterBottom>
-              Votre message a été envoyé avec succès! Je vous répondrai dans les plus brefs délais.
-            </Typography>
-            <Button variant="contained" onClick={handleClose}>
-              Fermer
-            </Button>
-          </Paper>
-        </Box>
-      </Modal>
+      <SucessModal open={open} handleClose={handleClose} />
     </Element>
   );
 };
