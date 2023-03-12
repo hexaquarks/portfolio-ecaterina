@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "@formspree/react";
 import { styled } from "@mui/material/styles";
 import { Helmet } from 'react-helmet';
 import { Box, Paper } from "@mui/material";
 import { Element } from "react-scroll";
+import Modal from "@mui/material/Modal";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -139,52 +141,76 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-
 const FormComponent: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
+  const [state, handleSubmit] = useForm("xwkjqqvp");
+  const [open, setOpen] = useState(false); // state to control the modal
+
+  const handleOpen = () => {
+    setOpen(true);
   };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleFormSubmission = (submission: any) => {
+    handleSubmit(submission);
+    handleOpen(); 
+  }
 
   return (
     <Element id="ContacterScrollSection" name="ContacterScrollSection">
-    <>
-    <Helmet>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
-        <title>My Page Title</title>
-        <meta name="description" content="This is a description of my page" />
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
+          <title>My Page Title</title>
+          <meta name="description" content="This is a description of my page" />
       </Helmet>
-    <StyledContainer>
-      <StyledBox>
-        <PictureContainer>
-          <Picture src={flowers} alt="Contact" />
-        </PictureContainer>
-        <StyledContentBox sx={{ width: "70%" }}>
+      <StyledContainer>
+        <StyledBox>
+          <PictureContainer>
+            <Picture src={flowers} alt="Contact" />
+          </PictureContainer>
+          <StyledContentBox sx={{ width: "70%" }}>
             <StyledFormContainer>
               <FormTitle variant="h2" align="left">
                 Me Contacter
               </FormTitle>
-              <StyledForm onSubmit={handleSubmit}>
-                <FormField id="name" label="Prénom" variant="standard" required />
-                <FormField id="last-name" label="Nom" variant="standard" required />
-                <FormField id="email" label="Email" type="email" variant="standard" required />
-                <FormField id="phone-number" label="Numéro de téléphone" type="tel" variant="standard" required />
-                <FormField id="reason" label="Raison de consultation" variant="standard" required />
-                  <StyledFormButton variant="contained" type="submit" style={{justifyContent: "flex-start"}}>
-                    Soumettre
-                    <ArrowForwardIcon/>
-                  </StyledFormButton>
+              <StyledForm onSubmit={handleFormSubmission}>
+                <FormField id="name" label="Prénom" variant="standard" name="name" required />
+                <FormField id="last-name" label="Nom" variant="standard" name="last-name" required />
+                <FormField id="email" label="Email" type="email" variant="standard" name="email" required />
+                <FormField id="phone-number" label="Numéro de téléphone" type="tel" variant="standard" name="phone-number" required />
+                <FormField id="reason" label="Raison de consultation" variant="standard" name="reason" required />
+                <StyledFormButton variant="contained" type="submit" style={{justifyContent: "flex-start"}}>
+                  Soumettre
+                  <ArrowForwardIcon/>
+                </StyledFormButton>
               </StyledForm>
             </StyledFormContainer>
-        </StyledContentBox>
-      </StyledBox>
-    </StyledContainer>
-    </>
+          </StyledContentBox>
+        </StyledBox>
+      </StyledContainer>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <Paper sx={{ width: 400, padding: '40px', textAlign: 'center' }}>
+            <Typography variant="h5" component="h2" id="modal-title" gutterBottom>
+              Votre message a été envoyé avec succès! Je vous répondrai dans les plus brefs délais.
+            </Typography>
+            <Button variant="contained" onClick={handleClose}>
+              Fermer
+            </Button>
+          </Paper>
+        </Box>
+      </Modal>
     </Element>
   );
 };
 
 export default FormComponent;
-
-
