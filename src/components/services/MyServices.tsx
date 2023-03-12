@@ -5,7 +5,7 @@ import { Element } from "react-scroll";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import profilePicture from "../../assets/profile-picture.jpg";
+import profilePicture from "../../assets/extra-picture.jpg";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const CoverPageContainer = styled(Container)(({ theme }) => ({
