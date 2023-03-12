@@ -9,9 +9,24 @@ import {
   MenuItem,
   Box
 } from '@mui/material';
+import { Link, scroller } from "react-scroll";
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/system';
 import signature from "../../assets/signature.png"
+
+type LinkProps = {
+  to: string;
+  spy: boolean;
+  smooth: boolean;
+  duration: number;
+  name: string;
+};
+
+const navbarSelections = [
+  { name: "Accueil", target: "AccueilScrollSection" },
+  { name: "Services", target: "ServicesScrollSection" },
+  { name: "Contacter", target: "ContacterScrollSection" }
+];
 
 const StyledAppBar = styled(AppBar)({
   position: 'fixed',
@@ -51,8 +66,8 @@ const StyledMenu = styled(Box)({
     display: 'block',
     content: `''`,
     borderBottom: 'solid 3px orange',
-    transform: 'scaleX(0)', 
-    transition: 'transform 100ms ease-in-out',  
+    transform: 'scaleX(0)',
+    transition: 'transform 100ms ease-in-out',
   },
   '& Button:hover:after': {
     transform: 'scaleX(1)',
@@ -97,9 +112,19 @@ const NavBar: React.FC = () => {
         </StyledMenuButton>
         <StyledImage src={signature} />
         <StyledMenu>
-          <Button color="inherit">Accueil</Button>
-          <Button color="inherit">Services</Button>
-          <Button color="inherit">Contacter</Button>
+          {navbarSelections.map((value, index) => (
+            <Button color="inherit">
+              <Link
+                to={value.target}
+                spy={false}
+                smooth={true}
+                duration={1000}
+                name={value.name}
+              >
+                {value.name}
+              </Link>
+            </Button>
+          ))}
         </StyledMenu>
         <Menu
           anchorEl={anchorEl}
@@ -115,9 +140,18 @@ const NavBar: React.FC = () => {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Home</MenuItem>
-          <MenuItem onClick={handleClose}>About</MenuItem>
-          <MenuItem onClick={handleClose}>Contact</MenuItem>
+          {navbarSelections.map((value, index) => (
+            <MenuItem>
+              <Link
+                to={value.target}
+                spy={true}
+                smooth={true}
+                duration={1000}
+              >
+                {value.name}
+              </Link>
+            </MenuItem>
+          ))}
         </Menu>
       </StyledToolbar>
     </StyledAppBar>

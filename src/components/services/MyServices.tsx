@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { styled } from '@mui/material/styles';
+import { Element } from "react-scroll";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -131,7 +132,7 @@ const CustomList = styled('ul')(({ theme }) => ({
 
 const CoverPage: React.FC = () => {
   return (
-    <>
+    <Element id="ServicesScrollSection" name="ServicesScrollSection"> 
       <Helmet>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
@@ -173,7 +174,7 @@ const CoverPage: React.FC = () => {
           </Grid>
         </Grid>
       </CoverPageContainer>
-    </>
+    </Element>
   );
 };
 

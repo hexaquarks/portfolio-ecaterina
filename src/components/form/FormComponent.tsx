@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import { Helmet } from 'react-helmet';
 import { Box, Paper } from "@mui/material";
+import { Element } from "react-scroll";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -146,6 +147,7 @@ const FormComponent: React.FC = () => {
   };
 
   return (
+    <Element id="ContacterScrollSection" name="ContacterScrollSection">
     <>
     <Helmet>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
@@ -179,6 +181,7 @@ const FormComponent: React.FC = () => {
       </StyledBox>
     </StyledContainer>
     </>
+    </Element>
   );
 };
 
