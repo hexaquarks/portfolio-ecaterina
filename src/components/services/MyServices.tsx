@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link, scroller } from "react-scroll";
 import { Helmet } from 'react-helmet';
 import { styled } from '@mui/material/styles';
 import { Element } from "react-scroll";
@@ -162,10 +163,17 @@ const CoverPage: React.FC = () => {
                 <div>Pour les personnes ayant une inaptitude ou en besoin d’être représentées.</div>
               </CustomTypographyBottom>
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px' }}>
-                <button>
-                  Me contacter
+                    <Link
+                      to="ContacterScrollSection"
+                      spy={true}
+                      smooth={true}
+                      duration={1000}
+                    >
+                      <button>
+                    Me contacter
                   <ArrowForwardIcon />
-                </button>
+                    </button>
+                  </Link>
               </div>
             </TitleContainer>
           </Grid>
