@@ -112,17 +112,17 @@ const NavBar: React.FC = () => {
         <StyledImage src={signature} />
         <StyledMenu>
           {navbarSelections.map((value, index) => (
-            <Button color="inherit">
-              <Link
-                to={value.target}
-                spy={false}
-                smooth={true}
-                duration={1000}
-                name={value.name}
-              >
+            <Link
+              to={value.target}
+              spy={false}
+              smooth={true}
+              duration={1000}
+              name={value.name}
+            >
+              <Button color="inherit">
                 {value.name}
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           ))}
         </StyledMenu>
         <Menu
@@ -140,16 +140,16 @@ const NavBar: React.FC = () => {
           onClose={handleClose}
         >
           {navbarSelections.map((value, index) => (
-            <MenuItem>
-              <Link
-                to={value.target}
-                spy={true}
-                smooth={true}
-                duration={1000}
-              >
+            <Link
+              to={value.target}
+              spy={true}
+              smooth={true}
+              duration={1000}
+            >
+              <MenuItem>
                 {value.name}
-              </Link>
-            </MenuItem>
+              </MenuItem>
+            </Link>
           ))}
         </Menu>
       </StyledToolbar>
