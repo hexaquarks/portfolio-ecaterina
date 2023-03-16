@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { styled } from "@mui/material/styles";
 import { Typography, Box } from '@mui/material';
@@ -20,7 +21,6 @@ const iconContent = [
 
 const imageUrls = [Ordre, Uqam];
 
-// Define the styles for the Footer component
 const FooterContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -29,20 +29,22 @@ const FooterContainer = styled(Box)(({ theme }) => ({
   color: 'black',
   flexDirection: 'row',
   [theme.breakpoints.down('sm')]: {
-    alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
 }));
 
-const LeftColumn = styled(Box)(({ theme }) => ({
+const LeftColumn = styled(Grid)(({ theme }) => ({
+  width: '20%',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   marginRight: '1rem',
-  marginLeft: theme.spacing(2),
+  marginLeft: theme.spacing(4),
   marginTop: theme.spacing(2),
+  position: 'relative',
   [theme.breakpoints.down('sm')]: {
     marginLeft: 0,
+    flexDirection: 'row',
   },
 }));
 
@@ -63,6 +65,9 @@ const TextColumn = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     paddingLeft: 0
   },
+  [theme.breakpoints.down('md')]: {
+    paddingLeft: '2%',
+  },
 }));
 
 const Text = styled(Typography)(({ theme }) => ({
@@ -74,13 +79,40 @@ const Text = styled(Typography)(({ theme }) => ({
 }));
 
 const StyledImage = styled(Image)(({ theme }) => ({
-  width: '100%',
-  height: '100%'
+  height: '100%',
+  maxWidth: '200px',
+  maxHeight: '100px',
+  [theme.breakpoints.down('xs')]: {
+    maxWidth: '90%',
+    maxHeight: '90px',
+  },
+  // Add the following styles for the 'sm' breakpoint
+  [theme.breakpoints.between('sm', 'md')]: {
+    maxWidth: '250px',
+    maxHeight: '125px',
+  },
 }));
 
 const StyledIcon = styled(Box)(({ theme }) => ({
   marginRight: '2rem',
   fontSize: 'clamp(1rem, 2.5vw, 2rem)',
+}));
+
+const LicenseText = styled(Typography)(({ theme }) => ({
+  fontSize: 'clamp(20px, 2.25vw, 25px)',
+  color: 'onyx',
+  fontFamily: 'Inter, sans-serif',
+  fontWeight: '500',
+  width: '200px',
+  textAlign: 'center',
+  alignSelf: 'baseline',
+  marginTop: theme.spacing(2),
+  paddingLeft: theme.spacing(4),
+  [theme.breakpoints.down('sm')]: {
+    marginBottom: theme.spacing(2),
+
+    alignSelf: 'center'
+  },
 }));
 
 
@@ -92,21 +124,28 @@ const Footer: React.FC = () => {
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
     </Helmet>
     <FooterContainer>
-      <LeftColumn>
+      <LeftColumn container>
         {imageUrls.map((url) => (
-          <StyledImage key={url} style={{ backgroundImage: `url(${url})` }}>
-            <Image style={{ backgroundImage: `url(${url})` }} />
-          </StyledImage>
+          <Grid item xs={6} sm={6} md={12} key={url}>
+            <StyledImage style={{ backgroundImage: `url(${url})` }}>
+              <Image style={{ backgroundColor: 'transparent' }} />
+            </StyledImage>
+          </Grid>
         ))}
       </LeftColumn>
-      <TextColumn>
-        {iconContent.map(({ icon, content }) => (
-          <Box key={content} display="flex" alignItems="center">
-            <StyledIcon>{icon}</StyledIcon>
-            <Text>{content}</Text>
-          </Box>
-        ))}
-      </TextColumn>
+      <Grid container item xs={12} sm={12} md={3}>
+        <LicenseText>N° de permis : MICN10/05/170TS</LicenseText>
+      </Grid>
+      <Grid container item xs={12} sm={12} md={8}>
+        <TextColumn>
+          {iconContent.map(({ icon, content }) => (
+            <Box key={content} display="flex" alignItems="center">
+              <StyledIcon>{icon}</StyledIcon>
+              <Text>{content}</Text>
+            </Box>
+          ))}
+        </TextColumn>
+      </Grid>
     </FooterContainer>
     </>
   );
