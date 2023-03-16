@@ -13,7 +13,7 @@ import Uqam from "../../assets/uqam.png"
 
 // Define the images and text content for the footer
 const iconContent = [
-  {icon: <HomeIcon fontSize="large" />, content: '688, rue Lamontagne, St-Jerome'},
+  {icon: <HomeIcon fontSize="large" />, content: '688, rue Lamontagne, St-Jérôme'},
   {icon: <EmailIcon fontSize="large" />, content: 'ecaterina_bujac@hotmail.com'},
   {icon: <PhoneIcon fontSize="large" />, content: '514-553-3991'}, 
   {icon: <LanguageIcon fontSize="large" />, content: 'Français, Roumain, Russe'}
@@ -112,7 +112,7 @@ const LicenseText = styled(Typography)(({ theme }) => ({
   width: '200px',
   textAlign: 'center',
   alignSelf: 'baseline',
-  marginTop: theme.spacing(2),
+  marginTop: theme.spacing(3),
   paddingLeft: theme.spacing(4),
   [theme.breakpoints.down('sm')]: {
     marginBottom: theme.spacing(2),
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
           </Grid>
         ))}
       </LeftColumn>
-      <Grid container item xs={12} sm={12} md={3}>
+      <Grid container item xs={12} sm={12} md={3} sx={{alignSelf: 'flex-start'}}>
         <LicenseText>N° de permis: BUJE13/02/010TS</LicenseText>
       </Grid>
       <Grid container item xs={12} sm={12} md={8}>

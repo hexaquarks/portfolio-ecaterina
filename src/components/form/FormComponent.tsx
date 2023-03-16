@@ -136,9 +136,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
   flexDirection: "row",
   alignItems: "flex-start",
   width: "100%",
-  height: "100vh",
   margin: 0,
   padding: 0,
+  paddingBottom: theme.spacing(6),
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
   },
