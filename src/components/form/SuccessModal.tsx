@@ -1,5 +1,4 @@
 import { styled } from "@mui/material/styles";
-import { Helmet } from 'react-helmet';
 import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -79,12 +78,6 @@ const CheckIconWrapper = styled(CheckIcon)(({ theme }) => ({
 const SuccessModal = ({ open, handleClose }: any) => {
   return (
     <>
-    <Helmet>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
-          <title>My Page Title</title>
-          <meta name="description" content="This is a description of my page" />
-      </Helmet>
     <StyledModal open={open} onClose={handleClose} aria-labelledby="modal-title" aria-describedby="modal-description">
       <StyledPaper>
         <CheckIconWrapper />

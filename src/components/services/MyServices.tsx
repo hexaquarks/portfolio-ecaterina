@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link, scroller } from "react-scroll";
-import { Helmet } from 'react-helmet';
 import { styled } from '@mui/material/styles';
 import { Element } from "react-scroll";
 import Container from '@mui/material/Container';
@@ -133,13 +132,7 @@ const CustomList = styled('ul')(({ theme }) => ({
 
 const CoverPage: React.FC = () => {
   return (
-    <Element id="ServicesScrollSection" name="ServicesScrollSection"> 
-      <Helmet>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
-        <title>My Page Title</title>
-        <meta name="description" content="This is a description of my page" />
-      </Helmet>
+    <Element id="ServicesScrollSection" name="ServicesScrollSection">
       <CoverPageContainer maxWidth={false}>
         <Grid container justifyContent="center" alignItems="stretch">
           <Grid item xs={12} md={6}>
@@ -163,17 +156,17 @@ const CoverPage: React.FC = () => {
                 <div>Pour les personnes ayant une inaptitude ou en besoin d’être représentées.</div>
               </CustomTypographyBottom>
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px' }}>
-                    <Link
-                      to="ContacterScrollSection"
-                      spy={true}
-                      smooth={true}
-                      duration={1000}
-                    >
-                      <button>
+                <Link
+                  to="ContacterScrollSection"
+                  spy={true}
+                  smooth={true}
+                  duration={1000}
+                >
+                  <button>
                     Me contacter
-                  <ArrowForwardIcon />
-                    </button>
-                  </Link>
+                    <ArrowForwardIcon />
+                  </button>
+                </Link>
               </div>
             </TitleContainer>
           </Grid>

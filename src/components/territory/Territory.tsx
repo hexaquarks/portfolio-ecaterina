@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import { Helmet } from 'react-helmet';
 import { Box } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -75,12 +74,6 @@ const Territory: React.FC = () => {
   
   return (
     <>
-      <Helmet>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
-          <title>Ecaterina Travailleuse Sociale</title>
-          <meta name="description" content="This is a description of my page" />
-      </Helmet>
       <StyledContainer>
         <StyledBox>
           <CustomTypographyTitle variant="h5" gutterBottom>

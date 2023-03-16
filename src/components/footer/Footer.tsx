@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import { Helmet } from 'react-helmet';
 import { styled } from "@mui/material/styles";
 import { Typography, Box } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
@@ -129,9 +128,6 @@ const LicenseText = styled(Typography)(({ theme }) => ({
 const Footer: React.FC = () => {
   return (
     <>
-    <Helmet>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet"/>
-    </Helmet>
     <FooterContainer>
       <LeftColumn container>
         {imageUrls.map((url) => (

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
 import { styled } from '@mui/material/styles';
 import { Element } from 'react-scroll';
 import Container from '@mui/material/Container';
@@ -71,12 +70,6 @@ const CustomTypographyBottom = styled(Typography)(({ theme }) => ({
 const CoverPage: React.FC = () => {
   return (
     <Element id="AccueilScrollSection" name="AccueilScrollSection">
-      <Helmet>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
-        <title>My Page Title</title>
-        <meta name="description" content="This is a description of my page" />
-      </Helmet>
       <CoverPageContainer maxWidth={false}>
         <Grid container justifyContent="center" alignItems="stretch">
           <Grid item xs={12} md={6}>
