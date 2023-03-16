@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ecaterinabujac-travailleuse-sociale/static/css/main.423544f7.css",
-    "main.js": "/ecaterinabujac-travailleuse-sociale/static/js/main.bbeddbbe.js",
-    "static/js/787.1f33eaf9.chunk.js": "/ecaterinabujac-travailleuse-sociale/static/js/787.1f33eaf9.chunk.js",
-    "static/media/extra-picture.jpg": "/ecaterinabujac-travailleuse-sociale/static/media/extra-picture.2492d2fbb31efc3f0dc6.jpg",
-    "static/media/profile-picture.jpg": "/ecaterinabujac-travailleuse-sociale/static/media/profile-picture.ffad821763c448125f7d.jpg",
-    "static/media/map.png": "/ecaterinabujac-travailleuse-sociale/static/media/map.4859c18d28f41814144a.png",
-    "static/media/flowers.jpg": "/ecaterinabujac-travailleuse-sociale/static/media/flowers.3e9f91d001086c4f1c56.jpg",
-    "index.html": "/ecaterinabujac-travailleuse-sociale/index.html",
-    "main.423544f7.css.map": "/ecaterinabujac-travailleuse-sociale/static/css/main.423544f7.css.map",
-    "main.bbeddbbe.js.map": "/ecaterinabujac-travailleuse-sociale/static/js/main.bbeddbbe.js.map",
-    "787.1f33eaf9.chunk.js.map": "/ecaterinabujac-travailleuse-sociale/static/js/787.1f33eaf9.chunk.js.map"
+    "main.css": "/static/css/main.423544f7.css",
+    "main.js": "/static/js/main.e39fe7b8.js",
+    "static/js/787.1f33eaf9.chunk.js": "/static/js/787.1f33eaf9.chunk.js",
+    "static/media/extra-picture.jpg": "/static/media/extra-picture.2492d2fbb31efc3f0dc6.jpg",
+    "static/media/profile-picture.jpg": "/static/media/profile-picture.ffad821763c448125f7d.jpg",
+    "static/media/map.png": "/static/media/map.4859c18d28f41814144a.png",
+    "static/media/flowers.jpg": "/static/media/flowers.3e9f91d001086c4f1c56.jpg",
+    "index.html": "/index.html",
+    "main.423544f7.css.map": "/static/css/main.423544f7.css.map",
+    "main.e39fe7b8.js.map": "/static/js/main.e39fe7b8.js.map",
+    "787.1f33eaf9.chunk.js.map": "/static/js/787.1f33eaf9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.423544f7.css",
-    "static/js/main.bbeddbbe.js"
+    "static/js/main.e39fe7b8.js"
   ]
 }
