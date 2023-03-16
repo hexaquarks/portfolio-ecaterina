@@ -34,7 +34,7 @@ const FooterContainer = styled(Box)(({ theme }) => ({
 }));
 
 const LeftColumn = styled(Grid)(({ theme }) => ({
-  width: '20%',
+  width: '25%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -45,6 +45,7 @@ const LeftColumn = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     marginLeft: 0,
     flexDirection: 'row',
+    width: '100%',
   },
 }));
 
@@ -96,6 +97,11 @@ const StyledImage = styled(Image)(({ theme }) => ({
 const StyledIcon = styled(Box)(({ theme }) => ({
   marginRight: '2rem',
   fontSize: 'clamp(1rem, 2.5vw, 2rem)',
+  [theme.breakpoints.down('sm')]: {
+    marginRight: '0.75rem',
+    width: '1.5rem',
+    height: 'auto'
+  },
 }));
 
 const LicenseText = styled(Typography)(({ theme }) => ({
@@ -110,8 +116,10 @@ const LicenseText = styled(Typography)(({ theme }) => ({
   paddingLeft: theme.spacing(4),
   [theme.breakpoints.down('sm')]: {
     marginBottom: theme.spacing(2),
-
     alignSelf: 'center'
+  },
+  [theme.breakpoints.down('sm')]: {
+    margin: '0 auto',
   },
 }));
 
@@ -134,7 +142,7 @@ const Footer: React.FC = () => {
         ))}
       </LeftColumn>
       <Grid container item xs={12} sm={12} md={3}>
-        <LicenseText>N° de permis : MICN10/05/170TS</LicenseText>
+        <LicenseText>N° de permis: BUJE13/02/010TS</LicenseText>
       </Grid>
       <Grid container item xs={12} sm={12} md={8}>
         <TextColumn>
