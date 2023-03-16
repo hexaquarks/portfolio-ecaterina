@@ -38,7 +38,6 @@ const LeftColumn = styled(Grid)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  marginRight: '1rem',
   marginLeft: theme.spacing(4),
   marginTop: theme.spacing(2),
   position: 'relative',
@@ -49,11 +48,26 @@ const LeftColumn = styled(Grid)(({ theme }) => ({
   },
 }));
 
+
 const Image = styled(Box)(({ theme }) => ({
   width: '200px',
   height: '100px',
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
+}));
+
+const StyledImage = styled(Image)(({ theme }) => ({
+  height: '100%',
+  maxWidth: '200px',
+  maxHeight: '100px',
+  [theme.breakpoints.down('sm')]: {
+    maxWidth: '100%',
+    maxHeight: '75px',
+  },
+  [theme.breakpoints.between('sm', 'md')]: {
+    maxWidth: '250px',
+    maxHeight: '125px',
+  },
 }));
 
 const TextColumn = styled(Box)(({ theme }) => ({
@@ -64,7 +78,8 @@ const TextColumn = styled(Box)(({ theme }) => ({
   flexWrap: 'wrap',
   paddingLeft: '20%',
   [theme.breakpoints.down('sm')]: {
-    paddingLeft: 0
+    paddingLeft: 0,
+    margin: '0 auto'
   },
   [theme.breakpoints.down('md')]: {
     paddingLeft: '2%',
@@ -77,21 +92,6 @@ const Text = styled(Typography)(({ theme }) => ({
   color: 'onyx',
   fontFamily: 'Inter, sans-serif',
   fontWeight: '400'
-}));
-
-const StyledImage = styled(Image)(({ theme }) => ({
-  height: '100%',
-  maxWidth: '200px',
-  maxHeight: '100px',
-  [theme.breakpoints.down('xs')]: {
-    maxWidth: '90%',
-    maxHeight: '90px',
-  },
-  // Add the following styles for the 'sm' breakpoint
-  [theme.breakpoints.between('sm', 'md')]: {
-    maxWidth: '250px',
-    maxHeight: '125px',
-  },
 }));
 
 const StyledIcon = styled(Box)(({ theme }) => ({
@@ -120,6 +120,7 @@ const LicenseText = styled(Typography)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     margin: '0 auto',
+    marginBottom: theme.spacing(4)
   },
 }));
 
