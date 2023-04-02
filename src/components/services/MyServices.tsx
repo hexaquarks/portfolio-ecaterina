@@ -15,6 +15,7 @@ const CoverPageContainer = styled(Container)(({ theme }) => {
 
   return {
     backgroundColor: `${backgroundColor}`,
+    transition: 'background-color 0.5s',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',

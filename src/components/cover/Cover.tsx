@@ -32,6 +32,7 @@ const CoverPageContainer = styled(Container)(({ theme }) => {
     paddingTop: theme.spacing(5),
     paddingBottom: theme.spacing(5),
     backgroundColor: backgroundColor,
+    transition: 'background-color 0.5s',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'flex-start',

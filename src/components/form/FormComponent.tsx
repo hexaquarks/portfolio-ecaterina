@@ -30,7 +30,8 @@ const StyledContainer = styled(Container)(({ theme }) => {
     "&.MuiContainer-root.MuiContainer-maxWidthLg": {
       maxWidth: "unset"
     },
-    backgroundColor: `${backgroundColor}`
+    backgroundColor: `${backgroundColor}`,
+    transition: 'background-color 0.5s',
   };
 });
 
@@ -43,7 +44,8 @@ const StyledFormContainer = styled(Container)(({ theme }) => {
     flexDirection: "column",
     alignItems: "center",
     paddingTop: theme.spacing(5),
-    backgroundColor: `${backgroundColor}`
+    backgroundColor: `${backgroundColor}`,
+    transition: 'background-color 0.5s',
   };
 });
 
@@ -70,7 +72,8 @@ const StyledForm = styled("form")(({ theme }) => {
     flexDirection: "column",
     borderRadius: "10px",
     padding: "40px",
-    backgroundColor: `${backgroundColor}`
+    backgroundColor: `${backgroundColor}`,
+    transition: 'background-color 0.5s',
   }; 
 });
 

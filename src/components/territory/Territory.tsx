@@ -23,7 +23,8 @@ const StyledContainer = styled(Container)(({ theme }) => {
     "&.MuiContainer-root.MuiContainer-maxWidthLg": {
       maxWidth: "unset"
     },
-    backgroundColor: `${backgroundColor}`
+    backgroundColor: `${backgroundColor}`,
+    transition: 'background-color 0.5s',
   };
 });
 
