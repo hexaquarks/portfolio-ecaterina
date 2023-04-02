@@ -10,93 +10,134 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useDarkMode } from '../../DarkModeContext';
 
 import placeholder from "../../assets/image-placeholder.jpg";
 import flowers from "../../assets/flowers.jpg";
 
 import SucessModal from "./SuccessModal"
 
-const StyledContainer = styled(Container)(({ theme }) => ({
-  paddingTop: theme.spacing(5),
-  marginLeft: '0',
-  marginRight: '0',
-  width: '100%',
-  maxWidth: 'unset',
-  "&.MuiContainer-root.MuiContainer-maxWidthLg": {
-    maxWidth: "unset"
-  },
-  backgroundColor: "aliceblue",
-}));
+const StyledContainer = styled(Container)(({ theme }) => {
+  const darkMode = useDarkMode();
+  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
 
-const StyledFormContainer = styled(Container)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  paddingTop: theme.spacing(5),
-  backgroundColor: "aliceblue",
-}));
+  return { 
+    paddingTop: theme.spacing(5),
+    marginLeft: '0',
+    marginRight: '0',
+    width: '100%',
+    maxWidth: 'unset',
+    "&.MuiContainer-root.MuiContainer-maxWidthLg": {
+      maxWidth: "unset"
+    },
+    backgroundColor: `${backgroundColor}`
+  };
+});
 
-const FormTitle = styled(Typography)(({ theme }) => ({
-  fontSize: `clamp(40px, 4vw, 60px)`,
-  fontWeight: '400',
-  fontFamily: 'Montserrat, sans-serif',
-  marginBottom: theme.spacing(2),
-}));
+const StyledFormContainer = styled(Container)(({ theme }) => {
+  const darkMode = useDarkMode();
+  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
 
-const StyledForm = styled("form")(({ theme }) => ({
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  borderRadius: "10px",
-  padding: "40px",
-  backgroundColor: "aliceblue",
-}));
+  return {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingTop: theme.spacing(5),
+    backgroundColor: `${backgroundColor}`
+  };
+});
+
+const FormTitle = styled(Typography)(({ theme }) => {
+  const darkMode = useDarkMode();
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+
+  return {
+    color: `${textColor}`,
+    fontSize: `clamp(40px, 4vw, 60px)`,
+    fontWeight: '400',
+    fontFamily: 'Montserrat, sans-serif',
+    marginBottom: theme.spacing(2),
+  };
+});
+
+const StyledForm = styled("form")(({ theme }) => {
+  const darkMode = useDarkMode();
+  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
+
+  return {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: "10px",
+    padding: "40px",
+    backgroundColor: `${backgroundColor}`
+  }; 
+});
 
 const CustomFormLabel = styled(Typography)({
   fontFamily: 'Inter, sans-serif',
 });
 
-const FormField = styled(TextField)(({ theme }) => ({
-  width: "100%",
-  marginBottom: theme.spacing(2),
-  "& .Mui-focused": {
-    borderBottomColor: theme.palette.primary.main,
-  },
-  "& .MuiInputLabel-root": {
-    fontFamily: 'Inter, sans-serif',
-    fontWeight: '500'
-  },
-  '& .MuiInputBase-root': {
-    fontFamily: 'Inter, sans-serif'
-  },
-}));
+const FormField = styled(TextField)(({ theme }) => {
+  const darkMode = useDarkMode();
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const underlineColor = darkMode.isDarkMode ? 'aliceblue' : 'rgba(0, 0, 0, 0.42)';
+  const underlineColorHover = darkMode.isDarkMode ? 'white' : 'black';
+
+  return {
+    width: "100%",
+    marginBottom: theme.spacing(2),
+    "& .Mui-focused": {
+      borderBottomColor: theme.palette.primary.main
+    },
+    "& .MuiInputLabel-root": {
+      color: `${textColor}`,
+      fontFamily: 'Inter, sans-serif',
+      fontWeight: '500'
+    },
+    '& .MuiInputBase-root': {
+      fontFamily: 'Inter, sans-serif',
+    },
+    '& .MuiInput-root:before': {
+      borderBottom: `1px solid ${underlineColor}`
+    },
+    '& .MuiInput-root:hover:before': {
+      borderBottom: `2px solid ${underlineColorHover}`
+    }
+  };
+});
 
 const FormButton = styled(Button)(({ theme }) => ({
   width: "100%",
   marginTop: theme.spacing(2),
 }));
 
-const StyledFormButton = styled(FormButton)(({ theme }) => ({
-  display: 'flex',
-  width: '200px',
-  border: '2px solid #000',
-  backgroundColor: 'transparent',
-  color: '#000',
-  fontSize: '16px',
-  fontWeight: 'bold',
-  padding: '10px 20px',
-  marginTop: '40px',
-  cursor: 'pointer',
-  transition: 'border-color 0.3s',
-  borderRadius: 0,
-  '& .MuiSvgIcon-root': {
-    marginLeft: '20px',
-  },
-  '&:hover': {
+const StyledFormButton = styled(FormButton)(({ theme }) => {
+  const darkMode = useDarkMode();
+  const color = darkMode.isDarkMode ? 'aliceblue' : 'black';
+
+  return {
+    display: 'flex',
+    width: '200px',
+    border: `2px solid ${color}`,
     backgroundColor: 'transparent',
-    borderColor: '#FFA500',
-  },
-}));
+    color: `${color}`,
+    fontSize: '16px',
+    fontWeight: 'bold',
+    padding: '10px 20px',
+    marginTop: '40px',
+    cursor: 'pointer',
+    transition: 'border-color 0.3s',
+    borderRadius: 0,
+    '& .MuiSvgIcon-root': {
+      marginLeft: '20px',
+    },
+    '&:hover': {
+      backgroundColor: 'transparent',
+      borderColor: '#FFA500',
+    }
+  };
+});
 
 const PictureContainer = styled(Box)(({ theme }) => ({
   width: '550px',

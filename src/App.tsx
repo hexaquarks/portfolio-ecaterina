@@ -18,7 +18,6 @@ const App = () => {
       <Services />
       <Territory />
       <FormComponent />
-      <br/>
       <Footer />
     </div>
     </DarkModeProvider>
