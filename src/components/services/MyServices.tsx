@@ -8,10 +8,11 @@ import Typography from '@mui/material/Typography';
 import profilePicture from "../../assets/extra-picture.jpg";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDarkMode } from '../../util/DarkModeContext';
+import { DARK_MODE_COLOR } from '../../util/Constants';
 
 const CoverPageContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
+  const backgroundColor = darkMode.isDarkMode ? DARK_MODE_COLOR : 'aliceblue';
 
   return {
     backgroundColor: `${backgroundColor}`,
@@ -39,7 +40,7 @@ const ProfilePicture = styled('img')(({ theme }) => ({
 
 const TitleContainer = styled('div')(({ theme }) => {
   const darkMode = useDarkMode();
-  const color = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const color = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     textAlign: 'left',
@@ -84,7 +85,7 @@ const TitleContainer = styled('div')(({ theme }) => {
 
 const CustomTypography = styled(Typography)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     fontSize: `clamp(40px, 6vw, 90px)`,
@@ -108,7 +109,7 @@ const CustomTypography = styled(Typography)(({ theme }) => {
 
 const CustomTypographyTitle = styled(Typography)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     fontFamily: 'Montserrat, sans-serif',
@@ -131,7 +132,7 @@ const CustomTypographyTitle = styled(Typography)(({ theme }) => {
 
 const CustomTypographyBottom = styled(Typography)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     color: `${textColor}`,
@@ -148,7 +149,7 @@ const CustomTypographyBottom = styled(Typography)(({ theme }) => {
 
 const CustomList = styled('ul')(({ theme }) => {
   const darkMode = useDarkMode();
-  const color = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const color = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     listStyleType: 'square',

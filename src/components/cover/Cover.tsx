@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import profilePicture from "../../assets/profile-picture.jpg";
 import { useDarkMode } from '../../util/DarkModeContext';
+import { DARK_MODE_COLOR } from '../../util/Constants';
 
 const StyledCover = styled('div')(({ theme }) => {
   const darkMode = useDarkMode();
@@ -23,7 +24,7 @@ const StyledCover = styled('div')(({ theme }) => {
 
 const CoverPageContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode.isDarkMode ? '#101010' : 'aliceblue';
+  const backgroundColor = darkMode.isDarkMode ? DARK_MODE_COLOR : 'aliceblue';
 
   return {
     display: 'flex',
@@ -65,7 +66,7 @@ const TitleContainer = styled('div')(({ theme }) => ({
 
 const CustomTypography = styled(Typography)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     fontFamily: 'Montserrat, sans-serif',
@@ -89,7 +90,7 @@ const CustomTypography = styled(Typography)(({ theme }) => {
 
 const CustomTypographyBottom = styled(Typography)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     color: `${textColor}`,

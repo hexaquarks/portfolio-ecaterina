@@ -4,12 +4,12 @@ import { Box } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useDarkMode } from '../../util/DarkModeContext';
-
+import { DARK_MODE_COLOR } from '../../util/Constants';
 import map from "../../assets/map.png";
 
 const StyledContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
+  const backgroundColor = darkMode.isDarkMode ? DARK_MODE_COLOR : 'aliceblue';
 
   return {
     display: 'flex',
@@ -71,7 +71,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 const CustomTypographyTitle = styled(Typography)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     color: `${textColor}`,

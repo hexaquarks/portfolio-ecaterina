@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDarkMode } from '../../util/DarkModeContext';
+import { DARK_MODE_COLOR } from '../../util/Constants';
 
 import placeholder from "../../assets/image-placeholder.jpg";
 import flowers from "../../assets/flowers.jpg";
@@ -19,7 +20,7 @@ import SucessModal from "./SuccessModal"
 
 const StyledContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
+  const backgroundColor = darkMode.isDarkMode ? DARK_MODE_COLOR : 'aliceblue';
 
   return { 
     paddingTop: theme.spacing(5),
@@ -37,7 +38,7 @@ const StyledContainer = styled(Container)(({ theme }) => {
 
 const StyledFormContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
+  const backgroundColor = darkMode.isDarkMode ? DARK_MODE_COLOR : 'aliceblue';
 
   return {
     display: "flex",
@@ -51,7 +52,7 @@ const StyledFormContainer = styled(Container)(({ theme }) => {
 
 const FormTitle = styled(Typography)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     color: `${textColor}`,
@@ -64,7 +65,7 @@ const FormTitle = styled(Typography)(({ theme }) => {
 
 const StyledForm = styled("form")(({ theme }) => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
+  const backgroundColor = darkMode.isDarkMode ? DARK_MODE_COLOR : 'aliceblue';
 
   return {
     width: "100%",
@@ -83,9 +84,9 @@ const CustomFormLabel = styled(Typography)({
 
 const FormField = styled(TextField)(({ theme }) => {
   const darkMode = useDarkMode();
-  const textColor = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
   const underlineColor = darkMode.isDarkMode ? 'aliceblue' : 'rgba(0, 0, 0, 0.42)';
-  const underlineColorHover = darkMode.isDarkMode ? 'white' : 'black';
+  const underlineColorHover = darkMode.isDarkMode ? 'white' : DARK_MODE_COLOR;
 
   return {
     width: "100%",
@@ -117,7 +118,7 @@ const FormButton = styled(Button)(({ theme }) => ({
 
 const StyledFormButton = styled(FormButton)(({ theme }) => {
   const darkMode = useDarkMode();
-  const color = darkMode.isDarkMode ? 'aliceblue' : 'black';
+  const color = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
 
   return {
     display: 'flex',
