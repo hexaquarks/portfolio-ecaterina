@@ -16,19 +16,14 @@ import signature from "../../assets/signature.png"
 import { useDarkMode } from '../../util/DarkModeContext';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-
-type LinkProps = {
-  to: string;
-  spy: boolean;
-  smooth: boolean;
-  duration: number;
-  name: string;
-};
+import HomeIcon from '@mui/icons-material/Home';
+import ServicesIcon from '@mui/icons-material/BusinessCenter';
+import PermContactCalendar from '@mui/icons-material/PermContactCalendar';
 
 const navbarSelections = [
-  { name: "Accueil", target: "AccueilScrollSection" },
-  { name: "Services", target: "ServicesScrollSection" },
-  { name: "Contacter", target: "ContacterScrollSection" }
+  { name: "Accueil", target: "AccueilScrollSection", icon: <HomeIcon /> },
+  { name: "Services", target: "ServicesScrollSection", icon: <ServicesIcon /> },
+  { name: "Contacter", target: "ContacterScrollSection", icon: <PermContactCalendar /> }
 ];
 
 const StyledAppBar = styled(AppBar)({
@@ -40,6 +35,18 @@ const StyledAppBar = styled(AppBar)({
     padding: '0 10px',
   }
 });
+
+const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  '& span': {
+    marginLeft: '8px',
+  },
+  '& svg': {
+    marginRight: '8px',
+  },
+  transition: 'color 300ms',
+}));
 
 const StyledMenuButton = styled(IconButton)(({ theme }) => ({
   display: 'none',
@@ -155,11 +162,27 @@ const NavBar: React.FC = () => {
               smooth={true}
               duration={1000}
             >
-              <MenuItem>
-                {value.name}
-              </MenuItem>
+              <StyledMenuItem>
+                <>
+                {value.icon}
+                <span>{value.name}</span>
+                </>
+              </StyledMenuItem>
             </Link>
           ))}
+          <MenuItem onClick={toggleDarkMode}>
+            {isDarkMode ? (
+              <>
+                <Brightness7Icon />
+                <span style={{ marginLeft: '8px' }}>Light mode</span>
+              </>
+            ) : (
+              <>
+                <Brightness4Icon />
+                <span style={{ marginLeft: '8px' }}>Dark mode</span>
+              </>
+            )}
+          </MenuItem>
         </Menu>
       </StyledToolbar>
     </StyledAppBar>
