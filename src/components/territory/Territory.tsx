@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { useDarkMode } from '../../DarkModeContext';
+import { useDarkMode } from '../../util/DarkModeContext';
 
 import map from "../../assets/map.png";
 

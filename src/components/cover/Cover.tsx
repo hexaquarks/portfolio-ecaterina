@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import profilePicture from "../../assets/profile-picture.jpg";
-import { useDarkMode } from '../../DarkModeContext';
+import { useDarkMode } from '../../util/DarkModeContext';
 
 const StyledCover = styled('div')(({ theme }) => {
   const darkMode = useDarkMode();
@@ -23,7 +23,7 @@ const StyledCover = styled('div')(({ theme }) => {
 
 const CoverPageContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
-  const backgroundColor = darkMode.isDarkMode ? 'black' : 'aliceblue';
+  const backgroundColor = darkMode.isDarkMode ? '#101010' : 'aliceblue';
 
   return {
     display: 'flex',

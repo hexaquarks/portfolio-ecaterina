@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useDarkMode } from '../../DarkModeContext';
+import { useDarkMode } from '../../util/DarkModeContext';
 
 import placeholder from "../../assets/image-placeholder.jpg";
 import flowers from "../../assets/flowers.jpg";

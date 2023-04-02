@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import profilePicture from "../../assets/extra-picture.jpg";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useDarkMode } from '../../DarkModeContext';
+import { useDarkMode } from '../../util/DarkModeContext';
 
 const CoverPageContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
