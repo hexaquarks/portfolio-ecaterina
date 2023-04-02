@@ -1,5 +1,7 @@
 import './App.css';
 
+import { DarkModeProvider } from './DarkModeContext';
+
 import Navbar from './components/navbar/Navbar'
 import Cover from './components/cover/Cover'
 import Services from './components/services/MyServices'
@@ -9,6 +11,7 @@ import Territory from './components/territory/Territory'
 
 const App = () => {
   return (
+    <DarkModeProvider>
     <div className="App">
       <Navbar />
       <Cover />
@@ -18,7 +21,7 @@ const App = () => {
       <br/>
       <Footer />
     </div>
-
+    </DarkModeProvider>
   );
 }
 

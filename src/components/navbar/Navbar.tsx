@@ -13,6 +13,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/system';
 import signature from "../../assets/signature.png"
 
+import { useDarkMode } from '../../DarkModeContext';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
 type LinkProps = {
   to: string;
   spy: boolean;
@@ -99,6 +103,8 @@ const NavBar: React.FC = () => {
     setAnchorEl(null);
   };
 
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
   return (
     <StyledAppBar position="static">
       <StyledToolbar>
@@ -124,6 +130,9 @@ const NavBar: React.FC = () => {
               </Button>
             </Link>
           ))}
+        <IconButton color="inherit" onClick={toggleDarkMode}>
+            {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
         </StyledMenu>
         <Menu
           anchorEl={anchorEl}
