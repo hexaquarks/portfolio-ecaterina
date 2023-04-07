@@ -174,12 +174,12 @@ const NavBar: React.FC = () => {
             {isDarkMode ? (
               <>
                 <Brightness7Icon />
-                <span style={{ marginLeft: '8px' }}>Light mode</span>
+                <span style={{ marginLeft: '8px' }}></span>
               </>
             ) : (
               <>
                 <Brightness4Icon />
-                <span style={{ marginLeft: '8px' }}>Dark mode</span>
+                <span style={{ marginLeft: '8px' }}></span>
               </>
             )}
           </MenuItem>
