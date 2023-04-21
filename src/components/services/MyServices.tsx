@@ -9,6 +9,7 @@ import profilePicture from "../../assets/extra-picture.jpg";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDarkMode } from '../../util/DarkModeContext';
 import { DARK_MODE_COLOR } from '../../util/Constants';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const CoverPageContainer = styled(Container)(({ theme }) => {
   const darkMode = useDarkMode();
@@ -29,6 +30,19 @@ const CoverPageContainer = styled(Container)(({ theme }) => {
     "&.MuiContainer-root": {
       padding: 0
     }
+  };
+});
+
+const ExternalLinkIcon = styled(OpenInNewIcon)(({ theme }) => {
+  const darkMode = useDarkMode();
+  const iconColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
+
+  return {
+    marginLeft: theme.spacing(1),
+    fontSize: `clamp(16px, 1.5vw, 22px)`,
+    color: `${iconColor}`,
+    verticalAlign: 'middle',
+    cursor: 'pointer',
   };
 });
 
@@ -181,12 +195,30 @@ const CoverPage: React.FC = () => {
               <CustomList>
                 <li>
                   <CustomTypography variant="body1">
-                    <span>Évaluation psychosociale dans le cadre de l’ouverture d’une tutelle au majeur</span>
+                    <span>
+                      Évaluation psychosociale dans le cadre de l’ouverture d’une tutelle au majeur
+                    </span>
+                    <a
+                      href="https://www.quebec.ca/justice-et-etat-civil/protection-legale/tutelle-au-majeur/demander-ouverture-tutelle#:~:text=L'ouverture%20d'une%20tutelle%20peut%20%C3%AAtre%20demand%C3%A9e%20lorsqu',repr%C3%A9sent%C3%A9e%20pour%20exercer%20ses%20droits."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLinkIcon />
+                    </a>
                   </CustomTypography>
                 </li>
                 <li>
                   <CustomTypography variant="body1">
-                    <span>Évaluation psychosociale dans le cadre de l’homologation d’un Mandat de Protection</span>
+                    <span>
+                      Évaluation psychosociale dans le cadre de l’homologation d’un Mandat de Protection
+                    </span>
+                    <a
+                      href="https://www.quebec.ca/justice-et-etat-civil/protection-legale/mandat-de-protection/faire-homologuer-mandat-de-protection#:~:text=Il%20faut%20s'adresser%20au,pour%20plusieurs%20de%20ces%20actes."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLinkIcon />
+                    </a>
                   </CustomTypography>
                 </li>
               </CustomList>
