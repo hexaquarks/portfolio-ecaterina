@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import { styled } from "@mui/material/styles";
+import { Link } from '@mui/material';
 import { Typography, Box } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import EmailIcon from '@mui/icons-material/Email';
@@ -12,13 +13,22 @@ import Uqam from "../../assets/uqam.png"
 
 // Define the images and text content for the footer
 const iconContent = [
-  {icon: <HomeIcon fontSize="large" />, content: '688, rue Lamontagne, St-Jérôme'},
-  {icon: <EmailIcon fontSize="large" />, content: 'ecaterina_bujac@hotmail.com'},
-  {icon: <PhoneIcon fontSize="large" />, content: '514-553-3991'}, 
-  {icon: <LanguageIcon fontSize="large" />, content: 'Français, Roumain, Russe'}
+  { icon: <HomeIcon fontSize="large" />, content: '688, rue Lamontagne, St-Jérôme' },
+  { icon: <EmailIcon fontSize="large" />, content: 'ecaterina_bujac@hotmail.com', href: 'mailto:ecaterina_bujac@hotmail.com' },
+  { icon: <PhoneIcon fontSize="large" />, content: '514-553-3991' },
+  { icon: <LanguageIcon fontSize="large" />, content: 'Français, Roumain, Russe' }
 ];
 
-const imageUrls = [Ordre, Uqam];
+const imageUrls = [
+  {
+    url: Ordre,
+    href: "https://www.otstcfq.org/"
+  },
+  {
+    url: Uqam,
+    href: "https://etudier.uqam.ca/tap/?noprog=6998&version=20233"
+  }
+];
 
 const FooterContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -123,35 +133,75 @@ const LicenseText = styled(Typography)(({ theme }) => ({
   },
 }));
 
+const StyledLink = styled(Link)(({ theme }) => ({
+  color: 'inherit',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'none',
+  },
+}));
+
 
 // Define the Footer component
 const Footer: React.FC = () => {
   return (
     <>
-    <FooterContainer>
-      <LeftColumn container>
-        {imageUrls.map((url) => (
-          <Grid item xs={6} sm={6} md={12} key={url}>
-            <StyledImage style={{ backgroundImage: `url(${url})` }}>
-              <Image style={{ backgroundColor: 'transparent' }} />
-            </StyledImage>
-          </Grid>
-        ))}
-      </LeftColumn>
-      <Grid container item xs={12} sm={12} md={3} sx={{alignSelf: 'flex-start'}}>
-        <LicenseText>N° de permis: BUJE13/02/010TS</LicenseText>
-      </Grid>
-      <Grid container item xs={12} sm={12} md={8}>
-        <TextColumn>
-          {iconContent.map(({ icon, content }) => (
-            <Box key={content} display="flex" alignItems="center">
-              <StyledIcon>{icon}</StyledIcon>
-              <Text>{content}</Text>
-            </Box>
+      <FooterContainer>
+        <LeftColumn container>
+          {imageUrls.map(({ url, href }) => (
+            <Grid item xs={6} sm={6} md={12} key={url}>
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                <StyledImage style={{ backgroundImage: `url(${url})` }}>
+                  <Image style={{ backgroundColor: 'transparent' }} />
+                </StyledImage>
+              </a>
+            </Grid>
           ))}
-        </TextColumn>
-      </Grid>
-    </FooterContainer>
+        </LeftColumn>
+        <Grid container item xs={12} sm={12} md={3} sx={{ alignSelf: 'flex-start' }}>
+          <Link
+            href="https://www.otstcfq.org/public/verifier-le-droit-dexercice/"
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="none"
+            sx={{
+              color: 'inherit',
+              textDecoration: 'none',
+              '&:hover': {
+                textDecoration: 'none',
+              },
+            }}
+          >
+            <LicenseText>N° de permis: BUJE13/02/010TS</LicenseText>
+          </Link>
+        </Grid>
+        <Grid container item xs={12} sm={12} md={8}>
+          <TextColumn>
+            {iconContent.map(({ icon, content, href }) => (
+              <Box key={content} display="flex" alignItems="center">
+                <StyledIcon>
+                  {href ? (
+                    <StyledLink href={href} target="_blank" rel="noopener noreferrer">
+                      {icon}
+                    </StyledLink>
+                  ) : (
+                    icon
+                  )}
+                </StyledIcon>
+                <Text>
+                  {href ? (
+                    <StyledLink href={href} target="_blank" rel="noopener noreferrer">
+                      {content}
+                    </StyledLink>
+                  ) : (
+                    content
+                  )}
+                </Text>
+              </Box>
+            ))}
+          </TextColumn>
+        </Grid>
+      </FooterContainer>
     </>
   );
 };
