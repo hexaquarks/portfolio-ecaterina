@@ -82,6 +82,24 @@ const CustomTypographyTitle = styled(Typography)(({ theme }) => {
   };
 });
 
+const CustomTypographySubtitle = styled(Typography)(({ theme }) => {
+  const darkMode = useDarkMode();
+  const textColor = darkMode.isDarkMode ? 'aliceblue' : DARK_MODE_COLOR;
+
+  return {
+    color: `${textColor}`,
+    fontSize: `clamp(20px, 3vw, 30px)`,
+    fontWeight: '400',
+    fontFamily: 'Montserrat, sans-serif',
+    marginTop: theme.spacing(3),
+    marginLeft: theme.spacing(5),
+    marginRight: theme.spacing(5),
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+    },
+  };
+});
 
 const Territory: React.FC = () => {
 
@@ -92,6 +110,9 @@ const Territory: React.FC = () => {
           <CustomTypographyTitle variant="h5" gutterBottom>
             Territoire Desservi
           </CustomTypographyTitle>
+          <CustomTypographySubtitle variant="h2" gutterBottom>
+          Je me déplace à domicile ou dans tout autre milieu de vie dans les territoires suivants : Saint-Jérôme, Montréal, Laval et les Laurentides.
+          </CustomTypographySubtitle>
           <PictureContainer>
             <Picture src={map} alt="Contact" />
           </PictureContainer>
